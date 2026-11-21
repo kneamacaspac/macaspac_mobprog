@@ -1,6 +1,6 @@
 {
-    "name": "macaspac_mobprog",
-    "short_name": "macaspac_mobprog",
+    "name": "macaspac_new_mobprog",
+    "short_name": "macaspac_new_mobprog",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

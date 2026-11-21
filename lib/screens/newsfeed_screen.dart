@@ -23,14 +23,16 @@ class NewsfeedScreen extends StatelessWidget {
             postContent: 'I can do this all day! #AvengersAssemble',
             date: '2 hours ago',
             numOfLikes: 10,
+            avatarPath: 'assets/images/steve.jpg',
           ),
           NewsfeedCard(
             userName: 'Tony Stark',
-            postContent:
-                'I am Iron Man. #GeniusBillionairePlayboyPhilanthropist',
+            postContent: 'I am Iron Man.',
             date: 'December 1, 2023',
             numOfLikes: 3000,
             hasImage: true,
+            imagePath: 'assets/images/iron_man.jpg',
+            avatarPath: 'assets/images/tony.jpg',
           ),
         ],
       ),

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:macaspac_mobprog/constants.dart';
+// import 'package:macaspac_new_mobprog/constants.dart';
 import 'package:macaspac_mobprog/widgets/custom_text.dart';
+import 'package:macaspac_mobprog/widgets/post_image.dart';
+import 'package:macaspac_mobprog/widgets/profile_avatar.dart';
+import 'package:macaspac_mobprog/widgets/post_like_button.dart';
+import 'package:macaspac_mobprog/widgets/post_action_button.dart';
 
 class NewsfeedCard extends StatelessWidget {
   final String userName;
@@ -9,6 +13,8 @@ class NewsfeedCard extends StatelessWidget {
   final String date;
   final int? numOfLikes;
   final bool? hasImage;
+  final String? imagePath;
+  final String? avatarPath;
   const NewsfeedCard({
     super.key,
     required this.userName,
@@ -16,6 +22,8 @@ class NewsfeedCard extends StatelessWidget {
     required this.date,
     this.numOfLikes,
     this.hasImage,
+    this.imagePath,
+    this.avatarPath,
   });
 
   @override
@@ -35,7 +43,7 @@ class NewsfeedCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(Icons.person),
+                ProfileAvatar(imagePath: avatarPath, radius: 20),
                 SizedBox(width: screenUtilWidth),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,37 +85,32 @@ class NewsfeedCard extends StatelessWidget {
               color: Colors.black,
             ),
             SizedBox(height: ScreenUtil().setHeight(5)),
-            hasImage == true
-                ? const Image(image: AssetImage('assets/images/iron_man.jpg'))
-                : SizedBox.shrink(),
+            if (hasImage == true && imagePath != null)
+              PostImage(imagePath: imagePath!),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextButton.icon(
+                PostLikeButton(initialLikes: numOfLikes ?? 0),
+
+                PostActionButton(
+                  icon: Icons.comment_outlined,
+                  label: 'Comment',
                   onPressed: () {
-                    // print('Like button pressed');
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Comment button pressed!')),
+                    );
                   },
-                  icon: Icon(Icons.thumb_up, color: fbPrimary),
-                  label: CustomText(
-                    text: numOfLikes.toString(),
-                    fontSize: ScreenUtil().setSp(12),
-                    color: fbDarkPrimary,
-                  ),
                 ),
-                CustomText(
-                  text: 'Comment',
-                  fontSize: ScreenUtil().setSp(12),
-                  color: fbDarkPrimary,
-                ),
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: Icon(Icons.redo, color: fbDarkPrimary),
-                  label: CustomText(
-                    text: 'Share',
-                    fontSize: ScreenUtil().setSp(12),
-                    color: fbDarkPrimary,
-                  ),
+
+                PostActionButton(
+                  icon: Icons.share_outlined,
+                  label: 'Share',
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Share button pressed!')),
+                    );
+                  },
                 ),
               ],
             ),
