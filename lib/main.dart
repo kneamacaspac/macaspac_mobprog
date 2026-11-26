@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:macaspac_mobprog/screens/home_screen.dart';
 import 'package:macaspac_mobprog/screens/newsfeed_screen.dart';
+import 'package:macaspac_mobprog/screens/notification_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -19,11 +20,12 @@ class MainApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: "Facebook Replication",
+          title: "Meowbook",
           initialRoute: "/home",
           routes: {
             "/newsfeed": (context) => const NewsfeedScreen(),
             "/home": (context) => const HomeScreen(),
+            "/notification": (context) => const NotificationScreen(),
           },
         );
       },

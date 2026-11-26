@@ -85,8 +85,21 @@ class NewsfeedCard extends StatelessWidget {
               color: Colors.black,
             ),
             SizedBox(height: ScreenUtil().setHeight(5)),
-            if (hasImage == true && imagePath != null)
-              PostImage(imagePath: imagePath!),
+            if (hasImage == true)
+              imagePath != null
+                  ? PostImage(imagePath: imagePath!)
+                  : Container(
+                      height: 200,
+                      width: double.infinity,
+                      color: Colors.grey[300],
+                      child: const Center(
+                        child: Icon(
+                          Icons.image_outlined,
+                          size: 50,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

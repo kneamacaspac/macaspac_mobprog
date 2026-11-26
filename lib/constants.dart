@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
-const Color fbPrimary = Color(0xFF0167f8);
-const Color fbSecondary = Color(0xFF003bb3);
-const Color fbDarkPrimary = Color(0xFF021452);
-const Color fbLightPrimary = Color(0xFF74b7fb);
+const Color fbPrimary = Color(0xFF1B1931);
+const Color fbSecondary = Color(0xFF44174E);
+const Color fbDarkPrimary = Color(0xFF662249);
+const Color fbLightPrimary = Color(0xFFA34054);
 const Color fbTextColorWhite = Color(0xFFe0f0fd);
